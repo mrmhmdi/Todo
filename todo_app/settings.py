@@ -37,10 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party
+    'rest_framework',
     "debug_toolbar",
-
+    # local
     'authentication',
     'base',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +146,9 @@ INTERNAL_IPS = [
 ]
 
 LOGIN_URL = 'login'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

@@ -15,7 +15,8 @@ class MainView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['tasks'] = Task.objects.filter(user=self.request.user)
+        context['tasks'] = Task.objects.filter(
+            user=self.request.user)
         context['undone_count'] = context['tasks'].filter(
             is_done=False).count()
 
